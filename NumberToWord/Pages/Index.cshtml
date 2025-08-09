@@ -1,0 +1,28 @@
+﻿@page
+@model NumberToWord.Pages.IndexModel
+@{
+    ViewData["Title"] = "Number to Word";
+}
+
+<!-- Fun title to keep things light -->
+<h1>🔢 Say It With Words</h1>
+
+<!-- Short instruction for the user -->
+<p>Type in a number and we’ll try our best to say it like a proper human.</p>
+
+<!-- The form where user enters a number -->
+<form method="post" style="margin:20px;">
+    <!-- Input field is bound to WhatTheyTyped in the C# code -->
+    <input asp-for="WhatTheyTyped" placeholder="Type a number here..." style="padding:10px; width:200px;" />
+
+    <!-- Button to trigger the conversion -->
+    <button type="submit" style="padding:10px;">Convert</button>
+</form>
+
+<!-- Show result only if we have something to show -->
+@if (Model.VerbalResult != null)
+{
+    <div style="margin-top:20px; font-weight:bold;">
+        @Model.VerbalResult
+    </div>
+}
